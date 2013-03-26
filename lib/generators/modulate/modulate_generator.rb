@@ -17,6 +17,10 @@ class ModulateGenerator < Rails::Generators::Base
     template "_modulate_attachments.html.haml", "app/views/#{model_name.underscore}s/_modulate_attachments.html.haml"
   end
 
+  def copy_initializer
+    copy "_carrierwave.rb", "config/initializers/carrierwave.rb"
+  end
+
   private
 
   def gsub_file(relative_destination, regexp, *args, &block)
