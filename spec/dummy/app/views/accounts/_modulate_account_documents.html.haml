@@ -1,0 +1,31 @@
+%table.table.table-bordered.table-compressed
+  %thead
+    %tr
+      %th Label
+      %th File Name
+      %th Content Type
+      %th Uploaded At
+      %th Public
+      %th 
+      %th
+  %tbody
+    - if @account.modulate_documents.any?
+      - @account.modulate_documents.each do |document|
+        - next unless document.persisted?
+        = f.fields_for :modulate_documents, document do |d|
+          %tr
+            %td= d.text_field :label
+            %td= document.filename
+            %td= document.content_type
+            %td= I18n.l document.created_at
+            %td= d.check_box :public
+            %td
+              = link_to modulate_document_path(document), rel: 'tooltip', title: 'Download' do
+                %i.icon-download
+            %td
+              = link_to modulate_document_path(document), data: {method: :delete, confirm: "Are you sure?"}, rel: 'tooltip', title: 'Delete' do
+                %i.icon-remove-circle
+    - else
+      %tr
+        %td{colspan: 7}
+          .no-results There are no documents.

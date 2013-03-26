@@ -1,0 +1,11 @@
+= semantic_form_for @account do |f|
+  = render "modulate_account_documents", f: f
+
+  = f.inputs do
+    = f.semantic_fields_for :modulate_documents, @account.modulate_documents.build do |d|
+      = d.input(:attachment, as: :file, label: 'Choose document to attach', required: true, 
+        input_html: {multiple: true}).sub('[attachment][]', '[attachment]').html_safe
+
+  = f.actions do
+    = f.action :submit, as: 'button', button_html: {class: 'btn btn-primary'}
+    = f.action :cancel, as: 'link', :label => "Cancel"
