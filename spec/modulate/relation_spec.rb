@@ -15,7 +15,7 @@ describe Modulate::Relation do
       modulated_model.modulate
       expect(association.macro).to eq(:has_many)
     end
-  
+
     describe "with custom name" do
       let(:custom_name) { :docs }
 
@@ -23,6 +23,18 @@ describe Modulate::Relation do
         modulated_model.modulate custom_name
         expect(association.name).to eq(custom_name)
       end
+
     end
+
+    describe "with options" do
+
+      it "creates an association with options" do
+        modulated_model.modulate custom_name, {through: :accounts}
+        expect(association.options).to include(through: :accounts)  
+      end
+
+    end
+
   end
+
 end
