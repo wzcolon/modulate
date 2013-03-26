@@ -1,6 +1,8 @@
 #Modulate
 
+[![Build Status](https://travis-ci.org/wzcolon/modulate.png)](https://travis-ci.org/wzcolon/modulate)
 [![Code Climate](https://codeclimate.com/github/wzcolon/modulate.png)](https://codeclimate.com/github/wzcolon/modulate)
+
 
 ##Overview
 
