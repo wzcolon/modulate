@@ -2,7 +2,7 @@ base: &base
   adapter: mysql2
   host: localhost
   user: root
-  password: root
+  password: 
   pool: 5
   timeout: 5000
 
