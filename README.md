@@ -1,6 +1,6 @@
 #Modulate
 
-This project rocks and uses MIT-LICENSE.
+[![Code Climate](https://codeclimate.com/github/wzcolon/modulate.png)](https://codeclimate.com/github/wzcolon/modulate)
 
 ##Overview
 
