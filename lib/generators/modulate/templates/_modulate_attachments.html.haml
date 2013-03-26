@@ -1,0 +1,11 @@
+= semantic_form_for @<%= model_name.underscore %> do |f|
+  = render "modulate_<%= model_name.underscore %>_documents", f: f
+
+  = f.inputs do
+    = f.semantic_fields_for :modulate_documents, @<%= model_name.underscore %>.modulate_documents.build do |d|
+      = d.input(:file, as: :file, label: 'Choose document to attach', required: true, 
+        input_html: {multiple: true,}).sub('[attachment][]', '[attachment]').html_safe
+
+  = f.actions do
+    = f.action :submit, as: 'button', button_html: {class: 'btn btn-primary'}
+    = f.action :cancel, as: 'link', :label => "Cancel"
