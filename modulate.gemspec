@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.summary     = "Easily add the ability to upload documents to any ActiveRecord model"
   s.description = "Easily add the ability to upload documents to any ActiveRecord model"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*"] 
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "carrierwave-riak",             "~> 0.1.2"
   s.add_dependency "rails",                        "~> 3.2.13"
