@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     modulate (0.0.1)
-      carrierwave
       carrierwave-riak (~> 0.1.2)
       rails (~> 3.2.13)
       riak-client
