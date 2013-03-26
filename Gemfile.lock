@@ -6,14 +6,6 @@ PATH
       rails (~> 3.2.13)
       riak-client
 
-PATH
-  remote: ~/Projects/carrierwave/
-  specs:
-    carrierwave (0.8.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      multi_json (~> 1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -55,6 +47,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     carrierwave-riak (0.1.2)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
@@ -164,7 +159,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 2.0.2)
-  carrierwave!
+  carrierwave
   factory_girl_rails (~> 4.2.1)
   formtastic
   haml
