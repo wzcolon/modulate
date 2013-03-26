@@ -5,7 +5,7 @@ class ModulateGenerator < Rails::Generators::Base
 
   argument :model_name, type: :string, required: true
 
-  def edit_models
+  def edit_model
     line = "class #{model_name.constantize} < ActiveRecord::Base"
     gsub_file "app/models/#{model_name.underscore}.rb", /(#{Regexp.escape(line)})/mi do |match|
       "#{match}\n  modulate\n"
@@ -18,7 +18,7 @@ class ModulateGenerator < Rails::Generators::Base
   end
 
   def copy_initializer
-    copy "_carrierwave.rb", "config/initializers/carrierwave.rb"
+    copy_file "_carrierwave.rb", "config/initializers/carrierwave.rb"
   end
 
   private
