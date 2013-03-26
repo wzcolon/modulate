@@ -138,6 +138,10 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     slop (3.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -169,3 +173,4 @@ DEPENDENCIES
   mysql2
   pry (~> 0.9.12)
   rspec-rails (~> 2.13.0)
+  simplecov

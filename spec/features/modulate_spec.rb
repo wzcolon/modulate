@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "uploading a document" do
-  
+
   let(:account) { FactoryGirl.create(:account) } 
 
   it "stores the file to Riak" do
@@ -10,4 +10,5 @@ describe "uploading a document" do
     click_button "Update Account"
     expect(page).to have_content('successfully')
   end
+
 end

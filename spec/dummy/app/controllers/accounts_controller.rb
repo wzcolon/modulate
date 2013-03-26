@@ -10,8 +10,8 @@ class AccountsController < ApplicationController
   def update
     @account = Account.find(params[:id])
     @account.attributes = params[:account]
-    @doc = @account.modulate_documents.detect(&:new_record?) 
-    @doc.attached_by_id = 1
+    @doc = @account.modulate_documents.detect(&:new_record?)
+    @doc.attached_by_id = 1 unless @doc.blank?
     if @account.save
       redirect_to accounts_path, notice: "successfully"
     else

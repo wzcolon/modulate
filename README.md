@@ -43,11 +43,11 @@ If you choose to track users then make sure your controller assigns the 'attache
       @account = Account.find(params[:id])
       @account.attributes = params[:account]
       @doc = @account.modulate_documents.detect(&:new_record?) 
-      @doc.attached_by_id = current_user
+      @doc.attached_by_id = current_user unless @doc.blank?
       if @account.save
         redirect_to accounts_path, notice: "successfully"
       else
-        flash.now[:alert] = "I like pie Error"
+        flash.now[:alert] = "error"
         render :show
       end
     end
