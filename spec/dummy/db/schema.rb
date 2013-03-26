@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325200306) do
+ActiveRecord::Schema.define(:version => 20130326150838) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130325200306) do
   end
 
   create_table "modulate_documents", :force => true do |t|
-    t.integer  "attached_by_id",                     :null => false
+    t.integer  "attached_by_id"
     t.integer  "attachable_id",                      :null => false
     t.string   "attachable_type",                    :null => false
     t.string   "attachment",                         :null => false

@@ -2,7 +2,7 @@ class AddModulateDocumentTable < ActiveRecord::Migration
   def up
 
     create_table :modulate_documents do |z|
-      z.integer             :attached_by_id, null: false
+      z.integer             :attached_by_id
       z.integer             :attachable_id, null: false
       z.string              :attachable_type, null: false
       z.string              :attachment, null: false

@@ -6,7 +6,7 @@ class Modulate::Document < ActiveRecord::Base
 
   mount_uploader :attachment, Modulate::DocumentUploader
 
-  validates :attachable_id, :attachable_type, :attached_by_id, :bucket, :key, :filename, :content_type, :attachment, presence: true
+  validates :attachable_id, :attachable_type, :bucket, :key, :filename, :content_type, :attachment, presence: true
   validates :key, uniqueness: {scope: :bucket}
 
   belongs_to :attachable, polymorphic: true

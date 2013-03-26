@@ -4,8 +4,8 @@ describe Modulate::Configuration do
 
   describe "defaults" do
 
-    it "uses 'current_user' as the user method" do
-      expect(Modulate.configuration.user_method).to eq(:current_user)
+    it "uses 'nil' as the user method" do
+      expect(Modulate.configuration.user_method).to eq(nil)
     end
 
   end

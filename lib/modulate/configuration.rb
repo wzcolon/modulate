@@ -3,8 +3,8 @@ module Modulate
 
     attr_accessor :user_method
 
-    def initialize
-      @user_method = :current_user
+    def initialize(method = nil)
+      @user_method = method
     end
   end
 end
