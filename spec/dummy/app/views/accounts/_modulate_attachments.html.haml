@@ -4,7 +4,7 @@
   = f.inputs do
     = f.semantic_fields_for :modulate_documents, @account.modulate_documents.build do |d|
       = d.input(:attachment, as: :file, label: 'Choose document to attach', required: true, 
-        input_html: {multiple: true}).sub('[attachment][]', '[attachment]').html_safe
+        input_html: {multiple: true, name: "account[modulate_documents_attributes][][attachment]"}).sub('[attachment][]', '[attachment]').html_safe
 
   = f.actions do
     = f.action :submit, as: 'button', button_html: {class: 'btn btn-primary'}
