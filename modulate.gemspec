@@ -7,7 +7,7 @@ require "modulate/version"
 Gem::Specification.new do |s|
   s.name        = "modulate"
   s.version     = Modulate::VERSION
-  s.authors     = ["Zach Colon feat/ Adam Hunter"]
+  s.authors     = ["Zach Colon, Adam Hunter"]
   s.email       = ["zach.colon@tma1.com"]
   s.homepage    = ""
   s.summary     = "Easily add the ability to upload documents to any ActiveRecord model"
