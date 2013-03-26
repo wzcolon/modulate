@@ -4,7 +4,7 @@ This project rocks and uses MIT-LICENSE.
 
 ##Overview
 
-Modulate builds off CarrierWave and CarrierWave-Riak to allow quick integration of Riak document storage. The generator will do the bulk of the work for you including building view partials that you can quickly incorporate if you chose to do so.
+Modulate builds off CarrierWave and CarrierWave-Riak to allow quick integration of document storage to Riak. The generator will do the bulk of the work for you including building view partials that you can quickly incorporate if you chose to do so.
 
 ##Usage
 
