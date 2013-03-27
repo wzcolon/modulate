@@ -1,7 +1,3 @@
-require 'carrierwave/riak'
-require 'modulate/relation'
-require 'modulate/configuration'
-
 module Modulate
 
   class Engine < ::Rails::Engine
@@ -19,3 +15,4 @@ module Modulate
   end
 
 end
+

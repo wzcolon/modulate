@@ -1,4 +1,4 @@
-require "modulate/engine"
+require 'carrierwave/riak'
 
 module Modulate
 
@@ -18,3 +18,8 @@ module Modulate
     @configuration
   end
 end
+
+require 'modulate/relation'
+require "modulate/engine"
+require 'modulate/configuration'
+
