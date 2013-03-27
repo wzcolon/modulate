@@ -20,11 +20,6 @@ describe Modulate do
     Account.modulate
   end
 
-  it "adds attr_accessible for document model to each model that calls it" do
-    Account.should_receive(:attr_accessible).with(:modulate_documents_attributes)
-    Account.modulate
-  end
-
   context "when no user_method is set" do
 
     it "adds does not add a user_method attr_accessor to each model that calls it" do

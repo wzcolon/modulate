@@ -23,6 +23,20 @@ Run the generator for each ActiveRecord model you wish to add modulate to.
   rails generate modulate Account
 ```
 
+The command above will add the 'modulate' method to your model. By default, it will create a has_many relationship to the Modulate::Documents class. If you would prefer to call the association by something other than modulate_documents then alter this line of code, supplying the name you wish to call the association.
+
+```ruby
+  class Account < ActiveRecord::Base
+    modulate name = :attachments 
+  end
+```
+
+If you are using mass-assignment protection in your models, add the following. 
+
+```rails
+  attr_accessible :modulate_documents_attributes
+```
+
 Modify the CarrierWave initializer to meet your needs. The default assumes you are running a standard local Riak installation. For more information on how to configure Riak see [carrierwave-riak](https://github.com/motske/carrierwave-riak#configuration).
 
 Modulate has the ability to track the user who added the document to the system. By default this will not be tracked, however, if you have a method that returns the current user and wish to track who is uploading documents, configure modulate with that method.
