@@ -13,8 +13,8 @@ class ModulateGenerator < Rails::Generators::Base
   end
 
   def copy_view_files
-    template "_modulate_documents.html.haml", "app/views/#{model_name.underscore}s/_modulate_#{model_name.underscore}_documents.html.haml"
-    template "_modulate_attachments.html.haml", "app/views/#{model_name.underscore}s/_modulate_attachments.html.haml"
+    template "_modulate_documents.html.haml", "#{folder_name}s/_modulate_#{partial_name}_documents.html.haml"
+    template "_modulate_attachments.html.haml", "#{folder_name}s/_modulate_attachments.html.haml"
   end
 
   def copy_initializer
@@ -28,6 +28,25 @@ class ModulateGenerator < Rails::Generators::Base
     content = File.read(path).gsub(regexp, *args, &block)
     File.open(path, 'wb') { |file| file.write(content) }
   end 
+
+  def partial_name
+    name.join("_")
+  end
+
+  def name
+    model_name.downcase.split('::')
+  end
+
+  def folder_name
+    array = name.tap{
+                      last = name.last
+                      new = last + 's'
+                      name.pop
+                      name.push new
+    }
+    tail = array.join("/")
+    "app/views/#{tail}"
+  end
 
 end
 
