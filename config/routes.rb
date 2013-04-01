@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :modulate_documents
+  namespace :modulate do
+    resources :documents
+  end
   
 end
