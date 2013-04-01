@@ -16,7 +16,7 @@ class AddModulateDocumentTable < ActiveRecord::Migration
       z.timestamps
     end
 
-    add_index :modulate_documents, :key, unique: true
+    add_index :modulate_documents, [:bucket, :key], unique: true
 
   end
 
