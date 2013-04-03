@@ -11,12 +11,14 @@ describe Modulate do
   end
 
   it "adds a relationship to each model that calls it" do
-    Account.should_receive(:has_many).with(:modulate_documents, as: :attachable, class_name: "Modulate::Document")
+    Account.should_receive(:has_many).once.with(:modulate_uploads, as: :attachable, class_name: "Modulate::Document")
+    Account.should_receive(:has_many).once.with(:modulate_documents, as: :attachable, class_name: "Modulate::Document")
     Account.modulate
   end
 
   it "adds nested attributes to each model that calls it" do
     Account.should_receive(:accepts_nested_attributes_for).with(:modulate_documents)
+    Account.should_receive(:accepts_nested_attributes_for).with(:modulate_uploads)
     Account.modulate
   end
 
