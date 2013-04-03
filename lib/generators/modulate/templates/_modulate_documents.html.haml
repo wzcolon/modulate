@@ -9,8 +9,8 @@
       %th 
       %th
   %tbody
-    - if @<%= model_name.underscore %>.modulate_documents.any?
-      - @<%= model_name.underscore %>.modulate_documents.each do |document|
+    - if @<%= name.last %>.modulate_documents.any?
+      - @<%= name.last %>.modulate_documents.each do |document|
         - next unless document.persisted?
         = f.fields_for :modulate_documents, document do |d|
           %tr

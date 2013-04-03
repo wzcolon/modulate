@@ -58,13 +58,19 @@ If you choose to track users then make sure your controller assigns the 'attache
     def update
       @account = Account.find(params[:id])
       @account.attributes = params[:account]
-      @doc = @account.modulate_documents.detect(&:new_record?) 
-      @doc.attached_by_id = current_user unless @doc.blank?
+
+      @docs = @account.modulate_documents.select(&:new_record?) 
+      unless @docs.blank?
+        @docs.each do |doc|
+        @doc.attached_by_id = current_user 
+      end
+
       if @account.save
-        redirect_to accounts_path, notice: "successfully"
+        flash.now[:notice] = "successfully"
+        redirect_to accounts_path
       else
         flash.now[:alert] = "error"
-        render :show
+        render :edit
       end
     end
   end
