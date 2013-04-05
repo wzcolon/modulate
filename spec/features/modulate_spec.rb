@@ -6,7 +6,7 @@ describe "uploading a document" do
 
   it "stores the file to Riak" do
     visit "/accounts/#{account.id}"
-    attach_file('account_modulate_documents_attributes_0_attachment', Rails.root.join('../../', 'spec', 'fixtures', 'test.txt'))
+    attach_file('account_modulate_uploads_attributes_0_attachment', Rails.root.join('../../', 'spec', 'fixtures', 'test.txt'))
     click_button "Update Account"
     expect(page).to have_content('successfully')
   end

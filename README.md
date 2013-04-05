@@ -23,6 +23,11 @@ Run the generator for each ActiveRecord model you wish to add modulate to.
   rails generate modulate Account
 ```
 
+You may optionally install the Riak test server in your application by passing the option to do so.  If you use this option, remember to configure the 'source' line in spec/support/test_server.yml with the local Riak installation path. This option will only work if Rspec is installed.
+```bash
+  rails generate modulate --test-server
+```
+
 The command above will add the 'modulate' method to your model. By default, it will create a has_many relationship to the Modulate::Documents class. If you would prefer to call the association by something other than modulate_documents then alter this line of code, supplying the name you wish to call the association.
 
 ```ruby
@@ -34,7 +39,7 @@ The command above will add the 'modulate' method to your model. By default, it w
 If you are using mass-assignment protection in your models, add the following. 
 
 ```rails
-  attr_accessible :modulate_documents_attributes
+  attr_accessible :modulate_documents_attributes, :modulate_uploads_attributes
 ```
 
 Modify the CarrierWave initializer to meet your needs. The default assumes you are running a standard local Riak installation. For more information on how to configure Riak see [carrierwave-riak](https://github.com/motske/carrierwave-riak#configuration).

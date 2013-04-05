@@ -27,7 +27,7 @@ class ModulateGenerator < Rails::Generators::Base
     if options.test_server?
       File.open('spec/spec_helper.rb', 'w+') do |f| f.write(rspec_config)
       end
-      template "_riak_test_server.yml", "spec/support/riak_test_server.yml"
+      template "_riak_test_server.yml", "/spec/support/riak_test_server.yml"
     end
   end
 

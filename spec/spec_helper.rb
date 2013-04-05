@@ -19,7 +19,6 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :rspec
-
   config.order = :random
 end
 
@@ -34,7 +33,7 @@ RSpec.configure do |config|
 
   config.before :suite do
     begin
-      config = YAML.load_file('spec/support/test_server.yml')
+      config = YAML.load_file(File.expand_path('../support/test_server.yml', __FILE__))
       $riak_test_server = Riak::TestServer.create(config.symbolize_keys)
       $riak_test_server.start
     rescue => e
