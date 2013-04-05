@@ -13,7 +13,7 @@ class Modulate::Document < ActiveRecord::Base
 
   def key
     return if filename.blank? || attachable.blank? || attachable.id.blank?
-    self[:key] ||= "#{attachable.id}-#{filename}"
+    self[:key] ||= "#{attachable.id}-#{Time.now.to_i}-#{filename}"
   end
 
   def bucket
