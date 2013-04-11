@@ -25,9 +25,9 @@ class ModulateGenerator < Rails::Generators::Base
 
   def include_riak_test_server
     if options.test_server?
-      File.open('spec/spec_helper.rb', 'w+') do |f| f.write(rspec_config)
+      File.open('spec/spec_helper.rb', 'a') do |f| f.puts(rspec_config)
       end
-      template "_riak_test_server.yml", "/spec/support/riak_test_server.yml"
+      template "_riak_test_server.yml", "spec/support/riak_test_server.yml"
     end
   end
 
@@ -72,7 +72,7 @@ class ModulateGenerator < Rails::Generators::Base
 
       config.before :suite do
         begin
-          config = YAML.load_file('spec/support/test_server.yml')
+          config = YAML.load_file('spec/support/riak_test_server.yml')
           $riak_test_server = Riak::TestServer.create(config.symbolize_keys)
           $riak_test_server.start
         rescue => e
@@ -83,8 +83,6 @@ class ModulateGenerator < Rails::Generators::Base
       config.after :suite do
         FileUtils.rm_rf(File.expand_path('../../uploads', __FILE__))
         $riak_test_server.stop
-        puts "Stoping test server..." 
-        $riak_test_Server = nil
         FileUtils.rm_rf(File.expand_path('../test_server', __FILE__))
       end
     end]
