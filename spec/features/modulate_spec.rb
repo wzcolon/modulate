@@ -38,7 +38,7 @@ describe "document handling" do
       require 'launchy'
       puts "hello"
       save_and_open_page
-      expect(page.response_headers['Content-Type']).to eq("application/octet-stream")
+      expect(page.response_headers['Content-Type']).to eq("text/plain")
     end
 
   end
