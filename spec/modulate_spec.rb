@@ -11,8 +11,8 @@ describe Modulate do
   end
 
   it "adds a relationship to each model that calls it" do
-    Account.should_receive(:has_many).once.with(:modulate_uploads, as: :attachable, class_name: "Modulate::Document")
-    Account.should_receive(:has_many).once.with(:modulate_documents, as: :attachable, class_name: "Modulate::Document")
+    Account.should_receive(:has_many).once.with(:modulate_uploads, as: :attachable, class_name: "Modulate::Document", inverse_of: :attachable)
+    Account.should_receive(:has_many).once.with(:modulate_documents, as: :attachable, class_name: "Modulate::Document", inverse_of: :attachable)
     Account.modulate
   end
 
